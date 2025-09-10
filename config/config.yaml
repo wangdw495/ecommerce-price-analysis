@@ -1,0 +1,113 @@
+# E-commerce Price Monitor Configuration
+
+# Web scraping configuration
+scraping:
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  request_delay: 1.0  # Delay between requests in seconds
+  timeout: 30         # Request timeout in seconds
+  retry_attempts: 3   # Number of retry attempts for failed requests
+  use_proxy: false    # Enable proxy usage
+  proxy_list: []      # List of proxy servers
+  headers:
+    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+    Accept-Language: "en-US,en;q=0.5"
+    Accept-Encoding: "gzip, deflate"
+    Connection: "keep-alive"
+    Upgrade-Insecure-Requests: "1"
+
+# Database configuration
+database:
+  type: "sqlite"                    # Database type (sqlite, mysql, postgresql)
+  path: "data/price_monitor.db"     # SQLite database path
+  host: null                        # Database host (for MySQL/PostgreSQL)
+  port: null                        # Database port
+  username: null                    # Database username
+  password: null                    # Database password
+  database: null                    # Database name
+
+# Notification configuration
+notification:
+  enabled: false                    # Enable notifications
+  email_smtp_server: ""             # SMTP server for email notifications
+  email_smtp_port: 587              # SMTP port
+  email_username: ""                # Email username
+  email_password: ""                # Email password
+  email_recipients: []              # List of email recipients
+  slack_webhook_url: ""             # Slack webhook URL
+
+# Analysis configuration
+analysis:
+  price_change_threshold: 0.05      # 5% price change threshold for alerts
+  volatility_window: 7              # Days for volatility calculation
+  trend_window: 30                  # Days for trend analysis
+  outlier_detection: true           # Enable outlier detection
+  seasonal_analysis: true           # Enable seasonal pattern analysis
+
+# Supported platforms
+supported_platforms:
+  # 国际平台 International platforms
+  - amazon
+  - ebay
+  - walmart
+  - target
+  - bestbuy
+  # 国内平台 Chinese platforms  
+  - jd          # 京东
+  - jingdong    # 京东别名
+  - taobao      # 淘宝
+  - xiaohongshu # 小红书
+  - xhs         # 小红书别名
+  - douyin      # 抖音电商
+
+# Export formats
+export_formats:
+  - csv
+  - excel
+  - json
+  - markdown
+  - html
+  - png
+
+# Logging configuration
+logging:
+  level: "INFO"                     # Log level (DEBUG, INFO, WARNING, ERROR)
+  console_output: true              # Enable console logging
+  file_output: true                 # Enable file logging
+  log_directory: "logs"             # Log file directory
+  max_file_size: "10MB"             # Maximum log file size
+  backup_count: 5                   # Number of backup log files
+
+# Chart configuration
+charts:
+  theme: "default"                  # Chart theme (default, dark, minimal, colorful)
+  color_palette: "primary"          # Color palette (primary, pastel, dark, modern)
+  figure_width: 12                  # Figure width in inches
+  figure_height: 8                  # Figure height in inches
+  dpi: 300                          # DPI for saved charts
+  save_format: "html"               # Default save format for charts
+
+# Monitoring configuration
+monitoring:
+  check_interval: 24                # Hours between monitoring checks
+  alert_threshold: 0.10             # 10% price change alert threshold
+  max_retries: 3                    # Maximum retries for failed monitoring
+  enable_alerts: false              # Enable price alerts
+
+# Rate limiting
+rate_limiting:
+  requests_per_minute: 30           # Maximum requests per minute per platform
+  burst_limit: 10                   # Burst request limit
+  backoff_factor: 2.0               # Exponential backoff factor
+
+# Cache configuration
+cache:
+  enabled: true                     # Enable caching
+  ttl: 3600                         # Cache TTL in seconds (1 hour)
+  max_size: 1000                    # Maximum cache entries
+  cache_directory: "data/cache"     # Cache directory
+
+# Performance settings
+performance:
+  max_concurrent_requests: 5        # Maximum concurrent requests
+  thread_pool_size: 10              # Thread pool size for parallel processing
+  memory_limit: "512MB"             # Memory limit for data processing

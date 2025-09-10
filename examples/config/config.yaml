@@ -1,0 +1,54 @@
+analysis:
+  outlier_detection: true
+  price_change_threshold: 0.05
+  seasonal_analysis: true
+  trend_window: 30
+  volatility_window: 7
+database:
+  database: null
+  host: null
+  password: null
+  path: data/price_monitor.db
+  port: null
+  type: sqlite
+  username: null
+export_formats:
+- csv
+- excel
+- json
+- markdown
+- png
+- html
+notification:
+  email_password: ''
+  email_recipients: []
+  email_smtp_port: 587
+  email_smtp_server: ''
+  email_username: ''
+  enabled: false
+  slack_webhook_url: ''
+scraping:
+  headers:
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    Accept-Encoding: gzip, deflate
+    Accept-Language: en-US,en;q=0.5
+    Connection: keep-alive
+    Upgrade-Insecure-Requests: '1'
+  proxy_list: []
+  request_delay: 1.0
+  retry_attempts: 3
+  timeout: 30
+  use_proxy: false
+  user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+supported_platforms:
+- amazon
+- ebay
+- walmart
+- target
+- bestbuy
+- jd
+- jingdong
+- taobao
+- xiaohongshu
+- xhs
+- douyin
